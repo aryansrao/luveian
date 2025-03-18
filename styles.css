@@ -87,6 +87,15 @@ canvas {
   object-fit: contain;
 }
 
+.low-perf-mode canvas {
+  image-rendering: optimizeSpeed; /* Older browsers */
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (Safari/Chrome) */
+  image-rendering: optimize-contrast; /* CSS3 Proposed */
+  image-rendering: crisp-edges; /* CSS4 */
+  -ms-interpolation-mode: nearest-neighbor; /* IE */
+}
+
 .logo-container {
   position: absolute;
   top: 50%;
@@ -2636,5 +2645,112 @@ canvas {
   
   .contact-link {
     font-size: 0.9rem;
+  }
+}
+
+/* Mobile performance optimizations */
+.low-perf-mode {
+  --overlay-blur: 5px; /* Reduced blur for better performance */
+  --dock-blur: 3px;
+  --btn-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  --overlay-shadow: 0 -3px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a class-based approach to animations instead of inline styles */
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Optimize transitions and animations for mobile */
+@media (max-width: 768px) {
+  .strategy-card,
+  .strategy-highlight,
+  .strategy-section,
+  .team-member,
+  .portfolio-item {
+    transition-duration: 0.5s; /* Shorter transition duration */
+  }
+  
+  /* Remove will-change to prevent excessive memory use */
+  .content-overlay,
+  .overlay-content,
+  .strategy-card,
+  .strategy-highlight {
+    will-change: auto;
+  }
+  
+  /* Reduce the complexity of backdrop filters on mobile */
+  .low-perf-mode .content-overlay,
+  .low-perf-mode .dock::before,
+  .low-perf-mode .dock > button {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgba(10, 10, 12, 0.9); /* Solid background instead of blur */
+  }
+  
+  /* Simplify shadows for better performance */
+  .low-perf-mode .strategy-card,
+  .low-perf-mode .strategy-highlight,
+  .low-perf-mode .strategy-cta {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Disable hover effects on mobile to prevent lag */
+  .low-perf-mode .strategy-card:hover,
+  .low-perf-mode .portfolio-item:hover,
+  .low-perf-mode .team-member:hover {
+    transform: none !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  /* Optimize background gradients */
+  .low-perf-mode .strategy-highlight,
+  .low-perf-mode .strategy-cta {
+    background: rgba(30, 30, 35, 0.9); /* Simpler background */
+  }
+  
+  /* Disable decorative elements on mobile */
+  .low-perf-mode .decoration-circle,
+  .low-perf-mode .decoration-line,
+  .low-perf-mode .decoration-dots {
+    display: none;
+  }
+  
+  /* Simplify transitions */
+  .low-perf-mode .content-overlay {
+    transition-duration: 0.5s;
+  }
+  
+  .low-perf-mode .overlay-content {
+    transition-duration: 0.3s;
+  }
+}
+
+/* Even more aggressive optimizations for very small screens */
+@media (max-width: 576px) {
+  /* Disable most animations completely */
+  .low-perf-mode .portfolio-item,
+  .low-perf-mode .team-member,
+  .low-perf-mode .strategy-card,
+  .low-perf-mode .strategy-highlight,
+  .low-perf-mode .strategy-cta {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  
+  /* Simplify content sections */
+  .low-perf-mode .portfolio-grid,
+  .low-perf-mode .strategy-cards {
+    gap: 1rem; /* Reduced spacing */
+  }
+  
+  /* Further reduce visual complexity */
+  .low-perf-mode .overlay-header::after,
+  .low-perf-mode .section-title::after,
+  .low-perf-mode .overlay-header h2::before,
+  .low-perf-mode .strategy-card::before {
+    display: none;
   }
 }

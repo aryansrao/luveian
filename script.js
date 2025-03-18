@@ -11,6 +11,32 @@ canvas.style.width = "100%"
 canvas.style.height = "100%"
 canvas.style.objectFit = "contain"
 
+// Flag for low performance mode
+let isLowPerfMode = false;
+
+// Device and performance detection
+function detectDeviceCapabilities() {
+  // Check if device is mobile
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   (window.innerWidth <= 768);
+  
+  // Check if device has low memory (iOS doesn't support navigator.deviceMemory)
+  const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory <= 4;
+  
+  // If mobile or low memory, enable low performance mode
+  isLowPerfMode = isMobile || hasLowMemory;
+  
+  // Add class to body for CSS optimizations
+  if (isLowPerfMode) {
+    document.body.classList.add('low-perf-mode');
+  }
+  
+  return isLowPerfMode;
+}
+
+// Run detection before initializing WebGL
+detectDeviceCapabilities();
+
 const vertexSource = `#version 300 es
 #ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
@@ -105,8 +131,10 @@ void main(void) {
 	cam(p);
 	cam(rd);
 
-	const float steps=400., maxd=15.;
-	float dd=.0, diffuse=mix(.75,1.,rnd(p.xz));
+	// Mobile optimization: Use fewer steps for low performance devices
+    float steps = ${isLowPerfMode ? '200.' : '400.'};
+    float maxd = 15.;
+    float dd=.0, diffuse=mix(.75,1.,rnd(p.xz));
 
 	for (float i=.0; i<steps; i++) {
 		float d=map(p)*diffuse;
@@ -234,16 +262,36 @@ function draw(now, program) {
     gl.drawArrays(gl.TRIANGLES, 0, vertices.length * .5);
 }
 
+let animationFrame = null;
 function loop(now) {
-    draw(now, programs[0])
-    requestAnimationFrame(loop)
+    // Skip rendering in extreme low memory conditions
+    if (!document.hidden && (!isLowPerfMode || performance.memory === undefined || performance.memory.usedJSHeapSize < performance.memory.jsHeapSizeLimit * 0.8)) {
+        draw(now, programs[0]);
+    }
+    
+    animationFrame = requestAnimationFrame(loop);
 }
 
 function init() {
-    dispose()
-    setup()
-    resize()
-    loop(0)
+    dispose();
+    setup();
+    resize();
+    loop(0);
+    
+    // Listen for visibility change to pause rendering when tab is not visible
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+}
+
+// Pause animation when tab is not visible to save resources
+function handleVisibilityChange() {
+    if (document.hidden) {
+        if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        }
+    } else if (!animationFrame) {
+        animationFrame = requestAnimationFrame(loop);
+    }
 }
 
 function resize() {
@@ -252,25 +300,48 @@ function resize() {
         innerHeight: height
     } = window
 
-    // Using higher precision DPR calculation with a cap for performance
-    const effectiveDpr = Math.min(dpr, 2); // Cap at 2x for performance on high-DPR devices
+    // Optimize DPR for mobile - use lower resolution for better performance
+    const effectiveDpr = isLowPerfMode ? Math.min(dpr, 1) : Math.min(dpr, 2);
     
-    canvas.width = width * effectiveDpr
-    canvas.height = height * effectiveDpr
+    canvas.width = Math.round(width * effectiveDpr);
+    canvas.height = Math.round(height * effectiveDpr);
 
-    gl.viewport(0, 0, width * effectiveDpr, height * effectiveDpr)
+    if (gl) {
+        gl.viewport(0, 0, canvas.width, canvas.height);
+    }
 }
 
 // Initialize after DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  init()
+  init();
   
-  // Use a debounce function for resize to improve performance
-  let resizeTimeout;
-  window.onresize = function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(resize, 200);
+  // Debounce function for performance-intensive operations
+  function debounce(func, wait) {
+    let timeout;
+    return function() {
+      const context = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
   }
+  
+  // Throttle function for continuous events like scrolling
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+  
+  // Use a debounce function for resize with larger delay on mobile
+  const debouncedResize = debounce(resize, isLowPerfMode ? 300 : 200);
+  window.addEventListener('resize', debouncedResize);
   
   // Improved touch detection for mobile devices
   const isTouchDevice = ('ontouchstart' in window) || 
@@ -284,21 +355,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function adjustOverlayHeight() {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      
-      const activeOverlay = document.querySelector('.content-overlay.active');
-      if (activeOverlay) {
-        activeOverlay.style.height = `calc(var(--vh, 1vh) * 75)`;
-      }
     }
     
     window.addEventListener('resize', adjustOverlayHeight);
     adjustOverlayHeight();
   }
   
-  // Set up scroll progress indicator
+  // Set up scroll progress indicator with throttling
   const overlays = document.querySelectorAll('.content-overlay');
   overlays.forEach(overlay => {
-    overlay.addEventListener('scroll', function() {
+    overlay.addEventListener('scroll', throttle(function() {
       if (this.classList.contains('active')) {
         const scrollTop = this.scrollTop;
         const scrollHeight = this.scrollHeight;
@@ -310,94 +376,110 @@ document.addEventListener('DOMContentLoaded', function() {
           progressBar.style.width = scrollPercent + '%';
         }
         
-        // Remove reference to scroll indicator
-        
         // Add animation for sections as they scroll into view
-        const sections = this.querySelectorAll('.strategy-section, .strategy-card, .strategy-highlight');
+        // In low performance mode, limit the number of elements we animate
+        const sections = isLowPerfMode 
+          ? this.querySelectorAll('.strategy-section, .strategy-highlight')
+          : this.querySelectorAll('.strategy-section, .strategy-card, .strategy-highlight');
+        
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
-          const isVisible = rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0;
+          const isVisible = rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0;
           
           if (isVisible && !section.classList.contains('animated')) {
             section.classList.add('animated');
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
+            // Instead of applying inline styles, use a class for better performance
+            section.classList.add('animate-in');
           }
         });
       }
-    });
+    }, 100)); // Throttle to execute at most once every 100ms
   });
   
-  // Allow CTA button in strategy overlay to open contact overlay
-  document.querySelectorAll('.cta-button[data-overlay]').forEach(button => {
-    button.addEventListener('click', function() {
-      const targetOverlay = this.getAttribute('data-overlay') + '-overlay';
-      const currentOverlay = this.closest('.content-overlay');
-      
-      // Close current overlay
-      currentOverlay.classList.remove('active');
-      document.querySelector('.dock > button.active').classList.remove('active');
-      
-      // Open target overlay
-      document.getElementById(targetOverlay).classList.add('active');
-      
-      // Find and activate corresponding dock button
-      const targetButton = document.querySelector(`.dock > button[data-overlay="${this.getAttribute('data-overlay')}"]`);
-      if (targetButton) {
-        targetButton.classList.add('active');
-      }
-    });
-  });
-  
-  // Contact Form Handling code removed
-  
-  // FAQ Toggle Functionality
-  const faqItems = document.querySelectorAll('.faq-item');
-  if (faqItems.length > 0) {
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      
-      question.addEventListener('click', () => {
-        // Close other open FAQ items
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item && otherItem.classList.contains('active')) {
-            otherItem.classList.remove('active');
-          }
-        });
+  // Lazily initialize non-critical UI interactions
+  setTimeout(() => {
+    // Allow CTA button in strategy overlay to open contact overlay
+    document.querySelectorAll('.cta-button[data-overlay]').forEach(button => {
+      button.addEventListener('click', function() {
+        const targetOverlay = this.getAttribute('data-overlay') + '-overlay';
+        const currentOverlay = this.closest('.content-overlay');
         
-        // Toggle active class on clicked item
-        item.classList.toggle('active');
-      });
-    });
-  }
-  
-  // Portfolio filter functionality
-  const filterButtons = document.querySelectorAll('.filter-button');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Update active button
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      const filterValue = button.getAttribute('data-filter');
-      
-      portfolioItems.forEach(item => {
-        item.classList.add('hidden');
-        item.classList.remove('visible');
+        // Close current overlay
+        currentOverlay.classList.remove('active');
+        document.querySelector('.dock > button.active').classList.remove('active');
         
-        if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
-          setTimeout(() => {
-            item.classList.remove('hidden');
-            item.classList.add('visible');
-          }, 100);
+        // Open target overlay
+        document.getElementById(targetOverlay).classList.add('active');
+        
+        // Find and activate corresponding dock button
+        const targetButton = document.querySelector(`.dock > button[data-overlay="${this.getAttribute('data-overlay')}"]`);
+        if (targetButton) {
+          targetButton.classList.add('active');
         }
       });
     });
-  });
+    
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          // Close other open FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle active class on clicked item
+          item.classList.toggle('active');
+        });
+      });
+    }
+    
+    // Portfolio filter functionality with performance optimization
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    if (filterButtons.length > 0 && portfolioItems.length > 0) {
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          const filterValue = button.getAttribute('data-filter');
+          
+          // Use requestAnimationFrame for better performance
+          requestAnimationFrame(() => {
+            portfolioItems.forEach(item => {
+              // Remove transition temporarily for better performance when bulk-changing many items
+              if (isLowPerfMode) item.style.transition = 'none';
+              
+              const shouldShow = filterValue === 'all' || 
+                               item.getAttribute('data-category').includes(filterValue);
+              
+              item.classList.toggle('hidden', !shouldShow);
+              item.classList.toggle('visible', shouldShow);
+            });
+            
+            // Force reflow before re-enabling transitions
+            if (isLowPerfMode) {
+              window.requestAnimationFrame(() => {
+                portfolioItems.forEach(item => {
+                  item.style.transition = '';
+                });
+              });
+            }
+          });
+        });
+      });
+    }
+  }, isLowPerfMode ? 1000 : 300); // Delay non-critical UI initialization
   
-  // Project modal functionality - Updated for root level modal
+  // Project modal functionality - Updated for root level modal with performance optimizations
   const modal = document.getElementById('project-modal');
   const viewProjectButtons = document.querySelectorAll('.view-project-btn');
   const closeModal = document.querySelector('.close-modal');
@@ -458,65 +540,78 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Open modal with project data - modified to remove gallery for both projects
-  viewProjectButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.stopPropagation(); // Prevent event bubbling
-      const projectId = button.getAttribute('data-project');
-      const projectContent = projectData[projectId];
-      
-      if (projectContent) {
-        // Create the modal content with restructured HTML for fixed sidebar layout
-        const modalBody = modal.querySelector('.modal-body');
-        modalBody.innerHTML = `
-          <div class="project-header">
-            <h2>${projectContent.title || 'Project Details'}</h2>
-          </div>
-          <div class="project-details">
-            <div class="project-meta">
-              <div class="meta-item">
-                <h4>Client</h4>
-                <p>${projectContent.client || 'Confidential'}</p>
-              </div>
-              <div class="meta-item">
-                <h4>Year</h4>
-                <p>${projectContent.year || '2023'}</p>
-              </div>
-              <div class="meta-item">
-                <h4>Services</h4>
-                <p>${projectContent.services || 'Design Services'}</p>
-              </div>
-              <div class="meta-item">
-                <h4>Category</h4>
-                <p>${projectContent.category || getProjectCategory(projectId)}</p>
-              </div>
-            </div>
-            <div class="project-description">
-              ${projectContent.description || '<p>Project details coming soon.</p>'}
-            </div>
-          </div>
-        `;
+  // Open modal with project data - modified for better performance
+  if (viewProjectButtons.length > 0 && modal) {
+    viewProjectButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        const projectId = button.getAttribute('data-project');
+        const projectContent = projectData[projectId];
         
-        // Open the modal with improved animation
-        modal.classList.add('active');
-        document.body.classList.add('modal-open'); // Add class to body to prevent scrolling
-        
-        // Add a small delay before checking if content is scrollable
-        setTimeout(() => {
-          const projectDesc = modalBody.querySelector('.project-description');
-          if (projectDesc && projectDesc.scrollHeight > projectDesc.clientHeight) {
-            projectDesc.classList.add('scrollable');
+        if (projectContent) {
+          // Create the modal content with restructured HTML for fixed sidebar layout
+          const modalBody = modal.querySelector('.modal-body');
+          
+          // In low performance mode, simplify the modal content
+          if (isLowPerfMode) {
+            modalBody.innerHTML = `
+              <div class="project-header">
+                <h2>${projectContent.title || 'Project Details'}</h2>
+              </div>
+              <div class="project-details">
+                <div class="project-meta">
+                  <div class="meta-item">
+                    <h4>Client</h4>
+                    <p>${projectContent.client || 'Confidential'}</p>
+                  </div>
+                  <div class="meta-item">
+                    <h4>Year</h4>
+                    <p>${projectContent.year || '2023'}</p>
+                  </div>
+                </div>
+                <div class="project-description">
+                  ${projectContent.description.replace(/<div class="project-testimonial">[\s\S]*?<\/div>/g, '') || '<p>Project details coming soon.</p>'}
+                </div>
+              </div>
+            `;
+          } else {
+            modalBody.innerHTML = `
+              <div class="project-header">
+                <h2>${projectContent.title || 'Project Details'}</h2>
+              </div>
+              <div class="project-details">
+                <div class="project-meta">
+                  <div class="meta-item">
+                    <h4>Client</h4>
+                    <p>${projectContent.client || 'Confidential'}</p>
+                  </div>
+                  <div class="meta-item">
+                    <h4>Year</h4>
+                    <p>${projectContent.year || '2023'}</p>
+                  </div>
+                  <div class="meta-item">
+                    <h4>Services</h4>
+                    <p>${projectContent.services || 'Design Services'}</p>
+                  </div>
+                  <div class="meta-item">
+                    <h4>Category</h4>
+                    <p>${projectContent.category || getProjectCategory(projectId)}</p>
+                  </div>
+                </div>
+                <div class="project-description">
+                  ${projectContent.description || '<p>Project details coming soon.</p>'}
+                </div>
+              </div>
+            `;
           }
           
-          // Force layout recalculation after content is loaded
-          modalBody.style.display = 'none';
-          setTimeout(() => {
-            modalBody.style.display = '';
-          }, 10);
-        }, 100);
-      }
+          // Open the modal with improved animation
+          modal.classList.add('active');
+          document.body.classList.add('modal-open'); // Add class to body to prevent scrolling
+        }
+      });
     });
-  });
+  }
 
   // Helper function to determine project category based on ID
   function getProjectCategory(projectId) {
@@ -537,46 +632,41 @@ document.addEventListener('DOMContentLoaded', function() {
   // Close modal with improved handling
   if (closeModal) {
     closeModal.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default behavior
-      event.stopPropagation(); // Stop event from propagating
-      console.log('Close button clicked'); // Debug log
+      event.preventDefault();
+      event.stopPropagation();
       closeProjectModal();
     });
-  } else {
-    console.error('Close modal button not found'); // Debug log if button is missing
   }
   
   // Close modal on outside click
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeProjectModal();
-    }
-  });
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeProjectModal();
+      }
+    });
+  }
   
   // Close modal on escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
       closeProjectModal();
     }
   });
   
   // Function to close the project modal with cleanup
   function closeProjectModal() {
-    console.log('Closing modal'); // Debug log
+    if (!modal) return;
+    
     modal.classList.remove('active');
-    document.body.classList.remove('modal-open'); // Remove class from body
+    document.body.classList.remove('modal-open');
     
-    // Give the body scroll back on mobile
-    if (document.body.classList.contains('touch-device')) {
-      document.body.style.overflow = '';
-    }
-    
-    // Clear content after animation completes to prevent layout issues on next open
+    // Clear content after animation completes to reduce memory usage
     setTimeout(() => {
       if (!modal.classList.contains('active')) {
         const modalBody = modal.querySelector('.modal-body');
         if (modalBody) modalBody.innerHTML = '';
       }
-    }, 600); // Match the CSS transition duration
+    }, 600);
   }
 });
