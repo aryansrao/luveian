@@ -669,4 +669,137 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 600);
   }
+  
+  // Add logo click event handler to open company overlay
+  const logoContainer = document.querySelector('.logo-container');
+  const companyOverlay = document.getElementById('company-overlay');
+  
+  if (logoContainer && companyOverlay) {
+    // Use the entire logo container as clickable area for better mobile accessibility
+    logoContainer.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Close any active overlays first
+      const activeOverlays = document.querySelectorAll('.content-overlay.active');
+      activeOverlays.forEach(overlay => {
+        overlay.classList.remove('active');
+      });
+      
+      // Remove active class from any active dock buttons
+      const activeButtons = document.querySelectorAll('.dock > button.active');
+      activeButtons.forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Open the company overlay
+      companyOverlay.classList.add('active');
+      
+      // Set up the progress bar for the company overlay
+      companyOverlay.querySelector('.progress-bar').style.width = '0%';
+    });
+    
+    // Add touch feedback for mobile
+    logoContainer.addEventListener('touchstart', function() {
+      this.classList.add('touch-active');
+    });
+    
+    logoContainer.addEventListener('touchend', function() {
+      this.classList.remove('touch-active');
+    });
+  }
+  
+  // Close overlay when clicking outside
+  if (logoContainer && companyOverlay) {
+    document.addEventListener('click', function(event) {
+      if (companyOverlay.classList.contains('active') &&
+          !event.target.closest('#company-overlay') &&
+          !event.target.closest('.logo')) {
+        companyOverlay.classList.remove('active');
+      }
+    });
+    
+    // Set up scroll progress for company overlay
+    companyOverlay.addEventListener('scroll', throttle(function() {
+      if (this.classList.contains('active')) {
+        const scrollTop = this.scrollTop;
+        const scrollHeight = this.scrollHeight;
+        const clientHeight = this.clientHeight;
+        const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+        
+        const progressBar = this.querySelector('.progress-bar');
+        if (progressBar) {
+          progressBar.style.width = scrollPercent + '%';
+        }
+        
+        // Animate sections as they come into view
+        const sections = this.querySelectorAll('.strategy-section, .strategy-highlight');
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const isVisible = rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0;
+          
+          if (isVisible && !section.classList.contains('animated')) {
+            section.classList.add('animated');
+            section.classList.add('animate-in');
+          }
+        });
+      }
+    }, 100));
+  }
+  
+  // Handle click suggestion auto-hide on mobile devices
+  const clickSuggestion = document.querySelector('.click-suggestion');
+  if (clickSuggestion) {
+    // Check if we're on mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768);
+    
+    if (isMobile) {
+      // Make sure it's visible initially
+      clickSuggestion.style.opacity = '1';
+      
+      // Set a timeout to hide it after 5 seconds
+      setTimeout(() => {
+        // Stop the pulse animation first for a cleaner transition
+        clickSuggestion.style.animation = 'none';
+        
+        // Create and apply a custom fade-out animation
+        const fadeOut = `
+          @keyframes fadeOutSuggestion {
+            from {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+            to {
+              opacity: 0;
+              transform: translateY(5px) scale(0.95);
+            }
+          }
+        `;
+        
+        // Insert the animation style
+        const styleElement = document.createElement('style');
+        styleElement.textContent = fadeOut;
+        document.head.appendChild(styleElement);
+        
+        // Apply the animation
+        clickSuggestion.style.animation = 'fadeOutSuggestion 0.6s ease forwards';
+        
+        // Set pointer-events to none during fade out to prevent clicks on invisible element
+        clickSuggestion.style.pointerEvents = 'none';
+        
+        // Remove from layout after animation completes to prevent it taking up space
+        setTimeout(() => {
+          clickSuggestion.style.display = 'none';
+          clickSuggestion.style.visibility = 'hidden';
+          clickSuggestion.style.height = '0';
+          clickSuggestion.style.margin = '0';
+          clickSuggestion.style.padding = '0';
+          
+          // Clean up by removing the temporary style element
+          document.head.removeChild(styleElement);
+        }, 600); // Match the CSS transition duration
+      }, 5000);
+    }
+  }
 });

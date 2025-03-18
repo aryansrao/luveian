@@ -16,6 +16,8 @@
     <!-- The WebGL canvas will be added here by script.js -->
     <div class="logo-container">
       <img src="./assets/logo.png" alt="Luveian Logo" class="logo" onerror="this.src='../assets/logo.png'; if(this.src.includes('../assets/logo.png')) this.onerror=function(){this.src='https://placehold.co/300x100/d2a78f/ffffff?text=LUVEIAN'; this.onerror=null;}">
+      <div class="tagline">Design • Software • Strategy</div>
+      <div class="click-suggestion">Click the logo to learn about our company</div> <!-- Added suggestion -->
     </div>
 
     <!-- Dock Navigation with better filled icons -->
@@ -1022,57 +1024,20 @@
         <section class="strategy-section">
           <h3 class="section-title">Our Values</h3>
           
-          <div class="strategy-cards">
-            <div class="strategy-card">
-              <div class="card-icon">
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>Excellence</h4>
-              <p>We are committed to delivering the highest quality in everything we do, from design and development to communication and support.</p>
-            </div>
-            
-            <div class="strategy-card">
-              <div class="card-icon">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <h4>Innovation</h4>
-              <p>We constantly explore new ideas, technologies, and approaches to create solutions that keep our clients ahead of the curve.</p>
-            </div>
-            
-            <div class="strategy-card">
-              <div class="card-icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <h4>Integrity</h4>
-              <p>We build relationships based on trust, honesty, and transparency, always acting in the best interest of our clients.</p>
-            </div>
-          </div>
-        </section>
-        
-        <!-- Growth Plans Section -->
-        <section class="strategy-section">
-          <h3 class="section-title">Looking Ahead</h3>
-          
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
-            <h4>Future Growth</h4>
-            <p>While we currently operate as a focused founding team, we have ambitious plans for growth:</p>
+            <h4>What Drives Us</h4>
             <ul class="feature-list">
-              <li><i class="fas fa-check"></i> Expanding our team with talented specialists</li>
-              <li><i class="fas fa-check"></i> Developing proprietary tools and frameworks</li>
-              <li><i class="fas fa-check"></i> Growing our service offerings</li>
-              <li><i class="fas fa-check"></i> Establishing partnerships with complementary businesses</li>
+              <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from design concepts to code implementation.</li>
+              <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and technologies to find the best solutions.</li>
+              <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from working closely with our clients as partners.</li>
+              <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all our communications and business practices.</li>
+              <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results we create for our clients.</li>
             </ul>
-            <p>Our vision is to become a leading digital agency known for innovative solutions and exceptional client service.</p>
           </div>
         </section>
         
-        <!-- Call to Action -->
-        <div class="strategy-cta">
-          <h3>Ready to work with our team?</h3>
-          <p>Contact us today to discuss how we can help bring your vision to life with our expertise in design and technology.</p>
-          <button class="cta-button" data-overlay="contact" type="button">Get in Touch</button>
-        </div>
+        <!-- Removed the Call to Action section -->
       </div>
     </div>
 
@@ -1250,6 +1215,127 @@
           </div>
         </section>
       </div>
+    </div>
+  </div>
+
+  <!-- Company About Overlay - Opens when the logo is clicked -->
+  <div class="content-overlay glassmorphism" id="company-overlay">
+    <div class="overlay-decoration">
+      <div class="decoration-circle"></div>
+      <div class="decoration-line"></div>
+      <div class="decoration-dots"></div>
+    </div>
+    
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <h2>About Luveian</h2>
+        <button class="close-overlay" title="Close">×</button>
+      </div>
+      <p>At Luveian, we combine creativity and technology to build innovative digital experiences for brands and businesses ready to make their mark.</p>
+      
+      <!-- Add scroll progress indicator -->
+      <div class="scroll-progress">
+        <div class="progress-bar"></div>
+      </div>
+      
+      <!-- New Services Overview Section -->
+      <section class="strategy-section services-overview">
+        <h3 class="section-title">Our Services</h3>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h4>Design</h4>
+            <p>Brand identity, UI/UX design, print materials, and visual content creation.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h4>Software</h4>
+            <p>Web development, custom applications, e-commerce, and digital platforms.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h4>Strategy</h4>
+            <p>Digital marketing, social media management, content strategy, and brand positioning.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- About Us Section -->
+      <section class="strategy-section">
+        <h3 class="section-title">Our Story</h3>
+        
+        <div class="strategy-highlight with-image">
+          <div class="highlight-decoration"></div>
+          <div class="highlight-content">
+            <h4>Founded on Passion</h4>
+            <p>Luveian was founded with a simple yet powerful vision: to help businesses transform their digital presence through thoughtful design and technology. What began as a collaboration between industry professionals has evolved into a boutique creative agency with a reputation for excellence.</p>
+            <p>We believe that exceptional digital experiences are built at the intersection of design, technology, and strategy—where aesthetics meet functionality and business objectives.</p>
+          </div>
+          <div class="highlight-image">
+            <div class="image-placeholder">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Our Approach Section -->
+      <section class="strategy-section">
+        <h3 class="section-title">Our Approach</h3>
+        
+        <div class="strategy-cards">
+          <div class="strategy-card">
+            <div class="card-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h4>Listen</h4>
+            <p>We begin every relationship by understanding your vision, goals, and challenges. This foundation ensures we create solutions that address your specific needs.</p>
+          </div>
+          
+          <div class="strategy-card">
+            <div class="card-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h4>Create</h4>
+            <p>Our design and development process combines creativity with technical expertise to build solutions that are both beautiful and functional.</p>
+          </div>
+          
+          <div class="strategy-card">
+            <div class="card-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4>Launch</h4>
+            <p>We don't just deliver and disappear. We partner with you through launch and beyond, ensuring your digital assets continue to perform and evolve.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Values Section -->
+      <section class="strategy-section">
+        <h3 class="section-title">Our Values</h3>
+        
+        <div class="strategy-highlight">
+          <div class="highlight-decoration"></div>
+          <h4>What Drives Us</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from design concepts to code implementation.</li>
+            <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and technologies to find the best solutions.</li>
+            <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from working closely with our clients as partners.</li>
+            <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all our communications and business practices.</li>
+            <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results we create for our clients.</li>
+          </ul>
+        </div>
+      </section>
+      
     </div>
   </div>
 

@@ -102,14 +102,20 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 100%;
   transition: all var(--transition-speed) ease;
+  margin: 0 auto;
+  display: block;
 }
 
 .logo:hover {
+  cursor: pointer;
   transform: scale(var(--hover-scale));
   filter: drop-shadow(0 0 15px var(--glow-color));
 }
@@ -123,13 +129,60 @@ canvas {
 
 @media (max-width: 768px) {
   .logo {
-    max-width: 200px;
+    max-width: 240px; /* Increased from 200px */
+  }
+  
+  .logo-container {
+    max-width: 320px; /* Added explicit max-width for container */
+  }
+  
+  .tagline {
+    font-size: 0.95rem; /* Increased from 0.85rem */
+    margin-top: 0.8rem; /* Increased from 0.6rem */
+    font-weight: 300; /* Made slightly bolder */
+  }
+  
+  .click-suggestion {
+    font-size: 0.9rem; /* Increased from 0.8rem */
+    margin-top: 1rem; /* Increased from 0.7rem */
+    padding: 0.6rem; /* Increased from 0.4rem */
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background */
   }
 }
 
 @media (max-width: 576px) {
+  .logo-container {
+    max-width: 260px; /* Increased from 200px */
+    /* Center more precisely in the viewport */
+    transform: translate(-50%, -53%);
+  }
+  
   .logo {
-    max-width: 150px;
+    max-width: 200px; /* Increased from 150px */
+  }
+  
+  .tagline {
+    font-size: 0.85rem; /* Increased from 0.75rem */
+    margin-top: 0.7rem; /* Increased from 0.5rem */
+    letter-spacing: 0.07em; /* Slightly increased letter spacing */
+  }
+  
+  .click-suggestion {
+    font-size: 0.85rem; /* Increased from 0.75rem */
+    margin-top: 0.8rem; /* Increased from 0.6rem */
+    padding: 0.5rem 0.7rem; /* More padding for better touch area */
+    border-radius: 25px; /* Slightly larger border radius */
+  }
+}
+
+/* Add extra small device adjustments */
+@media (max-width: 375px) {
+  .logo-container {
+    max-width: 240px;
+  }
+  
+  .logo {
+    max-width: 180px;
   }
 }
 
@@ -2754,3 +2807,317 @@ canvas {
     display: none;
   }
 }
+
+/* ...existing code... */
+
+.tagline {
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  opacity: 0;
+  /* Remove transform property to eliminate upward movement */
+  transition: opacity 0.6s ease;
+}
+
+.logo-container:hover .tagline {
+  opacity: 1;
+}
+
+/* Simplified keyframe animation that only affects opacity */
+@keyframes fadeInTagline {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply animation to tagline on page load with delay after logo animation */
+.logo-container .tagline {
+  animation: fadeInTagline 0.8s ease forwards;
+  animation-delay: 1.2s; /* Appears after the logo zoom animation completes */
+}
+
+/* Responsive adjustments for tagline */
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .tagline {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Company overlay specific styles */
+#company-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 1200px;
+  height: 0;
+  max-height: 80vh;
+  border-radius: 20px;
+  border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+  opacity: 0;
+  z-index: 95;
+  overflow: hidden;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#company-overlay.active {
+  height: 80vh;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  overflow-y: auto;
+}
+
+/* Enhanced glassmorphism for company overlay */
+.glassmorphism {
+  background-color: rgba(10, 10, 12, 0.75); /* More transparent background */
+  backdrop-filter: blur(30px); /* Increased blur effect */
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Inner highlight */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+#company-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+#company-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+}
+
+/* Services overview section */
+.services-overview {
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(var(--accent-color-rgb), 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--accent-color-rgb), 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(var(--accent-color-rgb), 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  background: rgba(var(--accent-color-rgb), 0.25);
+}
+
+.service-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+}
+
+.service-card h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Responsive adjustments for service cards */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .service-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    padding: 2rem;
+  }
+  
+  #company-overlay.active {
+    height: 85vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .service-card {
+    padding: 1.8rem 1.5rem;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .service-icon i {
+    font-size: 24px;
+  }
+  
+  .service-card h4 {
+    font-size: 1.2rem;
+  }
+  
+  #company-overlay.active {
+    height: 90vh;
+    width: 98%;
+  }
+}
+
+/* ...existing code... */
+
+.click-suggestion {
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.logo-container:hover .click-suggestion {
+  opacity: 1;
+}
+
+/* Make click suggestion always visible on mobile */
+@media (max-width: 768px) {
+  .click-suggestion {
+    opacity: 1; /* Always visible on mobile */
+    font-size: 0.8rem;
+    margin-top: 0.7rem;
+    padding: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-container {
+    max-width: 200px;
+  }
+  
+  .click-suggestion {
+    font-size: 0.75rem;
+    margin-top: 0.6rem;
+  }
+}
+
+/* ...existing code... */
