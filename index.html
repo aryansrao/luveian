@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luveian</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -15,7 +16,8 @@
   <div class="container">
     <!-- The WebGL canvas will be added here by script.js -->
     <div class="logo-container">
-      <img src="./assets/logo.png" alt="Luveian Logo" class="logo" onerror="this.src='../assets/logo.png'; if(this.src.includes('../assets/logo.png')) this.onerror=function(){this.src='https://placehold.co/300x100/d2a78f/ffffff?text=LUVEIAN'; this.onerror=null;}">
+      <img src="./assets/logo.png" alt="Luveian Logo" class="logo"
+        onerror="this.src='../assets/logo.png'; if(this.src.includes('../assets/logo.png')) this.onerror=function(){this.src='https://placehold.co/300x100/d2a78f/ffffff?text=LUVEIAN'; this.onerror=null;}">
       <div class="tagline">Design • Software • Strategy</div>
       <div class="click-suggestion">Click the logo to learn about our company</div> <!-- Added suggestion -->
     </div>
@@ -25,57 +27,61 @@
       <!-- Works -->
       <button type="button" data-title="Works" data-overlay="Works">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 11h18v9c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1v-9z"/>
-          <path d="M4 9V5c0-.6.4-1 1-1h6l2 2h7c.6 0 1 .4 1 1v2H4z" opacity=".7"/>
-          <path d="M12 15h4v2h-4v-2z" opacity=".9"/>
+          <path d="M3 11h18v9c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1v-9z" />
+          <path d="M4 9V5c0-.6.4-1 1-1h6l2 2h7c.6 0 1 .4 1 1v2H4z" opacity=".7" />
+          <path d="M12 15h4v2h-4v-2z" opacity=".9" />
         </svg>
       </button>
-      
+
       <!-- Designs - Changed to pencil icon -->
       <button type="button" data-title="Designs" data-overlay="brand">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.09-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z"/>
-          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" opacity=".9"/>
-          <path d="M15.37 4.26l-1.88 1.88 3.75 3.75 1.88-1.88-3.75-3.75z" opacity=".7"/>
+          <path
+            d="M20.71 5.63l-2.34-2.34c-.2-.2-.45-.29-.71-.29s-.51.09-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41z" />
+          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" opacity=".9" />
+          <path d="M15.37 4.26l-1.88 1.88 3.75 3.75 1.88-1.88-3.75-3.75z" opacity=".7" />
         </svg>
       </button>
-      
+
       <!-- Software Solutions - Code/programming icon -->
       <button type="button" data-title="Software Solutions" data-overlay="software">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 18l-6-6 6-6 1.4 1.4L4.8 12l4.6 4.6L8 18z"/>
-          <path d="M16 6l6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6L16 6z"/>
-          <path d="M10 4l4 16" opacity=".7" stroke="currentColor" stroke-width="2"/>
-          <rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"/>
+          <path d="M8 18l-6-6 6-6 1.4 1.4L4.8 12l4.6 4.6L8 18z" />
+          <path d="M16 6l6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6L16 6z" />
+          <path d="M10 4l4 16" opacity=".7" stroke="currentColor" stroke-width="2" />
+          <rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1"
+            opacity=".4" />
         </svg>
       </button>
-      
+
       <!-- Strategy - Changed to light bulb icon -->
       <button type="button" data-title="Brand Strategy" data-overlay="strategy">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z"/>
-          <path d="M9 21v-1h6v1c0 .55-.45 1-1 1h-4c-.55 0-1-.45-1-1z" opacity=".7"/>
-          <path d="M12 6c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1z" fill="#fff" opacity=".9"/>
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" />
+          <path d="M9 21v-1h6v1c0 .55-.45 1-1 1h-4c-.55 0-1-.45-1-1z" opacity=".7" />
+          <path d="M12 6c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1z" fill="#fff" opacity=".9" />
         </svg>
       </button>
-      
+
       <!-- Our Team -->
       <button type="button" data-title="Our Team" data-overlay="team">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" opacity=".9"/>
-          <path d="M20 19v1c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-1c0-3.3 3.3-6 7.5-6s7.5 2.7 7.5 6z"/>
-          <circle cx="19" cy="7" r="2" opacity=".7"/>
-          <circle cx="5" cy="7" r="2" opacity=".7"/>
+          <circle cx="12" cy="8" r="4" opacity=".9" />
+          <path d="M20 19v1c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-1c0-3.3 3.3-6 7.5-6s7.5 2.7 7.5 6z" />
+          <circle cx="19" cy="7" r="2" opacity=".7" />
+          <circle cx="5" cy="7" r="2" opacity=".7" />
         </svg>
       </button>
-      
+
       <!-- Contact - Changed to phone/call icon -->
       <button type="button" data-title="Contact Us" data-overlay="contact">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-          <path d="M16 8h2v2h-2V8z" fill="#fff" opacity=".9"/>
-          <path d="M16 12h2v2h-2v-2z" fill="#fff" opacity=".7"/>
-          <path d="M12 8h2v2h-2V8z" fill="#fff" opacity=".7"/>
+          <path
+            d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+          <path d="M16 8h2v2h-2V8z" fill="#fff" opacity=".9" />
+          <path d="M16 12h2v2h-2v-2z" fill="#fff" opacity=".7" />
+          <path d="M12 8h2v2h-2V8z" fill="#fff" opacity=".7" />
         </svg>
       </button>
     </nav>
@@ -88,19 +94,20 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Works</h2>
           <button class="close-overlay" title="Close">×</button>
         </div>
-        <p>Explore our portfolio of projects that showcase our expertise in design, software development, and brand strategy. Each project represents our commitment to excellence and innovation.</p>
-        
+        <p>Explore our portfolio of projects that showcase our expertise in design, software development, and brand
+          strategy. Each project represents our commitment to excellence and innovation.</p>
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Portfolio Filters -->
         <section class="strategy-section">
           <div class="portfolio-filters">
@@ -111,7 +118,7 @@
             <button class="filter-button" data-filter="strategy">Strategy</button>
           </div>
         </section>
-        
+
         <!-- Portfolio Grid -->
         <section class="strategy-section">
           <div class="portfolio-grid">
@@ -125,11 +132,12 @@
               <div class="portfolio-info">
                 <h3>Shyam Kemicals Website</h3>
                 <span class="portfolio-category">Web Design & Digital Marketing</span>
-                <p>A comprehensive website for Shyam Kemicals with integrated Google Ads campaigns and SEO optimization to maximize online visibility.</p>
+                <p>A comprehensive website for Shyam Kemicals with integrated Google Ads campaigns and SEO optimization
+                  to maximize online visibility.</p>
                 <button class="view-project-btn" data-project="project1">View Details</button>
               </div>
             </div>
-            
+
             <!-- Project 2 - King Rajasthan Royal Salon Logo -->
             <div class="portfolio-item" data-category="design branding strategy">
               <div class="portfolio-image">
@@ -140,17 +148,19 @@
               <div class="portfolio-info">
                 <h3>King Rajasthan Royal Salon</h3>
                 <span class="portfolio-category">Brand Identity & Social Media</span>
-                <p>Brand identity design with comprehensive social media management and targeted Meta advertising campaigns for a premium salon experience.</p>
+                <p>Brand identity design with comprehensive social media management and targeted Meta advertising
+                  campaigns for a premium salon experience.</p>
                 <button class="view-project-btn" data-project="project2">View Details</button>
               </div>
             </div>
           </div>
         </section>
-        
+
         <!-- Call to Action -->
         <div class="strategy-cta">
           <h3>Ready to start your project?</h3>
-          <p>Contact us today to discuss how we can help bring your vision to life with our expertise in design, technology, and strategy.</p>
+          <p>Contact us today to discuss how we can help bring your vision to life with our expertise in design,
+            technology, and strategy.</p>
           <button class="cta-button" data-overlay="contact" type="button">Get in Touch</button>
         </div>
       </div>
@@ -163,28 +173,30 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Designs</h2>
           <button class="close-overlay" title="Close">×</button>
         </div>
-        <p>Our design services help you create a distinctive and memorable visual identity that resonates with your audience and sets you apart from competitors.</p>
-        
+        <p>Our design services help you create a distinctive and memorable visual identity that resonates with your
+          audience and sets you apart from competitors.</p>
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Branding Section -->
         <section class="strategy-section">
           <h3 class="section-title">Brand Identity Design</h3>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
               <h4>Comprehensive Branding Solutions</h4>
-              <p>We create cohesive brand identities that communicate your company's values, personality, and unique selling proposition through carefully crafted visual elements:</p>
+              <p>We create cohesive brand identities that communicate your company's values, personality, and unique
+                selling proposition through carefully crafted visual elements:</p>
               <ul class="feature-list">
                 <li><i class="fas fa-check"></i> Logo design and development</li>
                 <li><i class="fas fa-check"></i> Brand color palette and typography</li>
@@ -199,43 +211,47 @@
               </div>
             </div>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-pencil-ruler"></i>
               </div>
               <h4>Logo Design</h4>
-              <p>We craft distinctive, versatile logos through a strategic process involving research, ideation, conceptualization, and refinement to create the perfect visual representation of your brand.</p>
+              <p>We craft distinctive, versatile logos through a strategic process involving research, ideation,
+                conceptualization, and refinement to create the perfect visual representation of your brand.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-palette"></i>
               </div>
               <h4>Visual Identity</h4>
-              <p>Our comprehensive visual identity systems establish the design elements, color schemes, typography, and graphical components that create brand recognition across all touchpoints.</p>
+              <p>Our comprehensive visual identity systems establish the design elements, color schemes, typography, and
+                graphical components that create brand recognition across all touchpoints.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-book"></i>
               </div>
               <h4>Brand Guidelines</h4>
-              <p>We develop detailed brand guidelines that ensure consistency in your brand's presentation across all media and applications by documenting proper usage of all brand assets.</p>
+              <p>We develop detailed brand guidelines that ensure consistency in your brand's presentation across all
+                media and applications by documenting proper usage of all brand assets.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- UI/UX Design Section -->
         <section class="strategy-section">
           <h3 class="section-title">UI/UX Design</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>User-Centered Digital Experiences</h4>
-            <p>Our UI/UX design approach focuses on creating intuitive, engaging digital experiences that delight users while achieving your business objectives:</p>
-            
+            <p>Our UI/UX design approach focuses on creating intuitive, engaging digital experiences that delight users
+              while achieving your business objectives:</p>
+
             <div class="platform-icons">
               <div class="platform-icon"><i class="fas fa-desktop"></i><span>Websites</span></div>
               <div class="platform-icon"><i class="fas fa-mobile-alt"></i><span>Mobile Apps</span></div>
@@ -244,64 +260,70 @@
               <div class="platform-icon"><i class="fas fa-laptop"></i><span>Web Apps</span></div>
             </div>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-sitemap"></i>
               </div>
               <h4>UX Research & Strategy</h4>
-              <p>We conduct user research, develop personas, and map user journeys to understand user needs, behaviors, and pain points before designing targeted solutions.</p>
+              <p>We conduct user research, develop personas, and map user journeys to understand user needs, behaviors,
+                and pain points before designing targeted solutions.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-object-group"></i>
               </div>
               <h4>Wireframing & Prototyping</h4>
-              <p>Our designers create detailed wireframes and interactive prototypes that allow for testing and refinement before full visual design implementation.</p>
+              <p>Our designers create detailed wireframes and interactive prototypes that allow for testing and
+                refinement before full visual design implementation.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-layer-group"></i>
               </div>
               <h4>UI Design & Visual Systems</h4>
-              <p>We design beautiful, functional interfaces with cohesive design systems that ensure visual consistency while providing an exceptional user experience.</p>
+              <p>We design beautiful, functional interfaces with cohesive design systems that ensure visual consistency
+                while providing an exceptional user experience.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Print & Packaging Design -->
         <section class="strategy-section">
           <h3 class="section-title">Print & Packaging Design</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-box-open"></i>
               </div>
               <h4>Packaging Design</h4>
-              <p>We create eye-catching packaging designs that protect your products, attract consumer attention, communicate key information, and reinforce your brand identity.</p>
+              <p>We create eye-catching packaging designs that protect your products, attract consumer attention,
+                communicate key information, and reinforce your brand identity.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-file-alt"></i>
               </div>
               <h4>Marketing Collateral</h4>
-              <p>Our team designs professional brochures, flyers, posters, business cards, and other print materials that effectively communicate your message and elevate your brand.</p>
+              <p>Our team designs professional brochures, flyers, posters, business cards, and other print materials
+                that effectively communicate your message and elevate your brand.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-book-open"></i>
               </div>
               <h4>Publication Design</h4>
-              <p>We specialize in creating engaging layouts for magazines, catalogs, annual reports, and books that combine visual appeal with readability and organizational clarity.</p>
+              <p>We specialize in creating engaging layouts for magazines, catalogs, annual reports, and books that
+                combine visual appeal with readability and organizational clarity.</p>
             </div>
           </div>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
@@ -313,7 +335,8 @@
                 <li><i class="fas fa-check"></i> File preparation for various printing methods</li>
                 <li><i class="fas fa-check"></i> Quality assurance and print inspection</li>
               </ul>
-              <p>We work closely with trusted print vendors to ensure your designs are produced with the highest quality standards.</p>
+              <p>We work closely with trusted print vendors to ensure your designs are produced with the highest quality
+                standards.</p>
             </div>
             <div class="highlight-image">
               <div class="image-placeholder">
@@ -322,79 +345,87 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Environmental & Exhibition Design -->
         <section class="strategy-section">
           <h3 class="section-title">Environmental & Exhibition Design</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Immersive Branded Spaces</h4>
-            <p>We design captivating physical environments that bring your brand to life in three-dimensional spaces:</p>
+            <p>We design captivating physical environments that bring your brand to life in three-dimensional spaces:
+            </p>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-store-alt"></i>
               </div>
               <h4>Retail Environments</h4>
-              <p>Our retail design services create engaging shopping experiences through strategic layout, custom fixtures, signage, and environmental graphics that highlight your products.</p>
+              <p>Our retail design services create engaging shopping experiences through strategic layout, custom
+                fixtures, signage, and environmental graphics that highlight your products.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-map-signs"></i>
               </div>
               <h4>Exhibition Stands</h4>
-              <p>We design attention-grabbing trade show booths and exhibition spaces that attract visitors, communicate your key messages, and make a memorable impression.</p>
+              <p>We design attention-grabbing trade show booths and exhibition spaces that attract visitors, communicate
+                your key messages, and make a memorable impression.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-sign"></i>
               </div>
               <h4>Signage & Wayfinding</h4>
-              <p>Our comprehensive signage systems guide people through physical spaces while reinforcing your brand identity through consistent visual language.</p>
+              <p>Our comprehensive signage systems guide people through physical spaces while reinforcing your brand
+                identity through consistent visual language.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Motion & Animation Section -->
         <section class="strategy-section">
           <h3 class="section-title">Motion Graphics & Animation</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-film"></i>
               </div>
               <h4>Animated Logos</h4>
-              <p>We bring your brand mark to life with subtle, sophisticated motion that adds a dynamic dimension to your brand identity across digital platforms.</p>
+              <p>We bring your brand mark to life with subtle, sophisticated motion that adds a dynamic dimension to
+                your brand identity across digital platforms.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-tv"></i>
               </div>
               <h4>Explainer Videos</h4>
-              <p>Our animated explainer videos simplify complex concepts, showcase product features, and tell compelling stories that engage and inform your audience.</p>
+              <p>Our animated explainer videos simplify complex concepts, showcase product features, and tell compelling
+                stories that engage and inform your audience.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-photo-video"></i>
               </div>
               <h4>Social Media Animation</h4>
-              <p>We create eye-catching animated content optimized for social media platforms to increase engagement and stop users from scrolling past your message.</p>
+              <p>We create eye-catching animated content optimized for social media platforms to increase engagement and
+                stop users from scrolling past your message.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Call to Action -->
         <div class="strategy-cta">
           <h3>Ready to elevate your brand's visual identity?</h3>
-          <p>Contact us today to discuss how our design expertise can help your brand stand out in a crowded marketplace.</p>
+          <p>Contact us today to discuss how our design expertise can help your brand stand out in a crowded
+            marketplace.</p>
           <button class="cta-button" data-overlay="contact" type="button">Get Started</button>
         </div>
       </div>
@@ -408,28 +439,31 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Software Solutions</h2>
           <button class="close-overlay" title="Close">×</button>
         </div>
-        <p>From mobile applications to enterprise systems, our Software Solutions team creates digital products that are both powerful and user-friendly, designed to solve your unique business challenges.</p>
-        
+        <p>From mobile applications to enterprise systems, our Software Solutions team creates digital products that are
+          both powerful and user-friendly, designed to solve your unique business challenges.</p>
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Web Design Section -->
         <section class="strategy-section">
           <h3 class="section-title">Web Design Excellence</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Custom Website Development</h4>
-            <p>Our web design team creates visually stunning, responsive websites that reflect your brand identity and drive user engagement. We focus on creating intuitive user experiences that convert visitors into customers.</p>
-            
+            <p>Our web design team creates visually stunning, responsive websites that reflect your brand identity and
+              drive user engagement. We focus on creating intuitive user experiences that convert visitors into
+              customers.</p>
+
             <div class="platform-icons">
               <div class="platform-icon"><i class="fab fa-html5"></i><span>HTML5</span></div>
               <div class="platform-icon"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
@@ -450,66 +484,72 @@
               <div class="platform-icon"><i class="fab fa-figma"></i><span>Figma</span></div>
             </div>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-mobile-alt"></i>
               </div>
               <h4>Responsive Design</h4>
-              <p>Our websites adapt seamlessly to all devices and screen sizes, ensuring optimal user experience whether viewed on desktop, tablet, or smartphone.</p>
+              <p>Our websites adapt seamlessly to all devices and screen sizes, ensuring optimal user experience whether
+                viewed on desktop, tablet, or smartphone.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-tachometer-alt"></i>
               </div>
               <h4>Performance Optimization</h4>
-              <p>We build websites with speed in mind, optimizing images, implementing efficient code, and utilizing caching strategies to ensure fast loading times.</p>
+              <p>We build websites with speed in mind, optimizing images, implementing efficient code, and utilizing
+                caching strategies to ensure fast loading times.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- SEO Section -->
         <section class="strategy-section">
           <h3 class="section-title">Search Engine Optimization</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-search"></i>
               </div>
               <h4>Keyword Research & Strategy</h4>
-              <p>We identify high-value keywords in your industry and develop content strategies that help your website rank higher in search engine results pages.</p>
+              <p>We identify high-value keywords in your industry and develop content strategies that help your website
+                rank higher in search engine results pages.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-chart-line"></i>
               </div>
               <h4>On-Page & Technical SEO</h4>
-              <p>Our SEO specialists optimize your website's structure, meta data, content, and technical aspects to improve crawlability and search engine rankings.</p>
+              <p>Our SEO specialists optimize your website's structure, meta data, content, and technical aspects to
+                improve crawlability and search engine rankings.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-link"></i>
               </div>
               <h4>Backlink Building</h4>
-              <p>We implement ethical link-building strategies to increase your website's authority and improve organic search performance.</p>
+              <p>We implement ethical link-building strategies to increase your website's authority and improve organic
+                search performance.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Custom Applications Section -->
         <section class="strategy-section">
           <h3 class="section-title">Custom Application Development</h3>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
               <h4>Tailored Software Solutions</h4>
-              <p>We develop custom applications that address your specific business needs, streamline operations, and provide competitive advantages:</p>
+              <p>We develop custom applications that address your specific business needs, streamline operations, and
+                provide competitive advantages:</p>
               <ul class="feature-list">
                 <li><i class="fas fa-check"></i> Enterprise resource planning (ERP) systems</li>
                 <li><i class="fas fa-check"></i> Customer relationship management (CRM) tools</li>
@@ -525,53 +565,58 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Educational & Institutional Solutions -->
         <section class="strategy-section">
           <h3 class="section-title">Educational & Institutional Solutions</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-university"></i>
               </div>
               <h4>Academic Websites</h4>
-              <p>Specialized websites designed for educational institutions, featuring intuitive navigation, resource management, and robust content management systems.</p>
+              <p>Specialized websites designed for educational institutions, featuring intuitive navigation, resource
+                management, and robust content management systems.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-graduation-cap"></i>
               </div>
               <h4>School & College Portals</h4>
-              <p>Comprehensive portals that connect students, faculty, and parents with features for attendance tracking, result management, and communication tools.</p>
+              <p>Comprehensive portals that connect students, faculty, and parents with features for attendance
+                tracking, result management, and communication tools.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-clipboard-check"></i>
               </div>
               <h4>Online Examination Systems</h4>
-              <p>Secure, reliable examination platforms with features for test creation, proctoring, automated grading, and result analysis.</p>
+              <p>Secure, reliable examination platforms with features for test creation, proctoring, automated grading,
+                and result analysis.</p>
             </div>
           </div>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Virtual Learning Environments</h4>
-            <p>Our virtual learning platforms offer comprehensive educational experiences with integrated video conferencing, resource sharing, assignment submission, and progress tracking.</p>
+            <p>Our virtual learning platforms offer comprehensive educational experiences with integrated video
+              conferencing, resource sharing, assignment submission, and progress tracking.</p>
           </div>
         </section>
-        
+
         <!-- E-commerce Section -->
         <section class="strategy-section">
           <h3 class="section-title">E-commerce Solutions</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Complete Online Store Development</h4>
-            <p>We build powerful e-commerce platforms that combine stunning design with advanced functionality to drive sales and enhance customer experience.</p>
-            
+            <p>We build powerful e-commerce platforms that combine stunning design with advanced functionality to drive
+              sales and enhance customer experience.</p>
+
             <div class="platform-icons">
               <div class="platform-icon"><i class="fab fa-shopify"></i><span>Shopify</span></div>
               <div class="platform-icon"><i class="fab fa-wordpress"></i><span>WooCommerce</span></div>
@@ -579,61 +624,67 @@
               <div class="platform-icon"><i class="fas fa-shopping-cart"></i><span>Custom</span></div>
             </div>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-credit-card"></i>
               </div>
               <h4>Payment Gateway Integration</h4>
-              <p>Seamless integration with multiple payment processors to provide your customers with secure, convenient checkout options.</p>
+              <p>Seamless integration with multiple payment processors to provide your customers with secure, convenient
+                checkout options.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-boxes"></i>
               </div>
               <h4>Inventory Management</h4>
-              <p>Robust inventory systems that track stock levels, manage product variations, and automate reordering processes.</p>
+              <p>Robust inventory systems that track stock levels, manage product variations, and automate reordering
+                processes.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-truck"></i>
               </div>
               <h4>Shipping & Logistics</h4>
-              <p>Integrated shipping solutions with real-time carrier rates, tracking information, and order fulfillment workflows.</p>
+              <p>Integrated shipping solutions with real-time carrier rates, tracking information, and order fulfillment
+                workflows.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Support & Maintenance -->
         <section class="strategy-section">
           <h3 class="section-title">Ongoing Support & Maintenance</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-sync-alt"></i>
               </div>
               <h4>Regular Updates</h4>
-              <p>We keep your software solutions up-to-date with the latest security patches, feature enhancements, and compatibility updates.</p>
+              <p>We keep your software solutions up-to-date with the latest security patches, feature enhancements, and
+                compatibility updates.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-headset"></i>
               </div>
               <h4>Technical Support</h4>
-              <p>Our dedicated support team provides prompt assistance to resolve any issues and ensure your systems continue to run smoothly.</p>
+              <p>Our dedicated support team provides prompt assistance to resolve any issues and ensure your systems
+                continue to run smoothly.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Call to Action -->
         <div class="strategy-cta">
           <h3>Ready to transform your digital presence?</h3>
-          <p>Contact us today to discuss how our software solutions can help your business grow and succeed in the digital world.</p>
+          <p>Contact us today to discuss how our software solutions can help your business grow and succeed in the
+            digital world.</p>
           <button class="cta-button" data-overlay="contact" type="button">Get Started</button>
         </div>
       </div>
@@ -646,7 +697,7 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Brand Strategy</h2>
@@ -654,23 +705,25 @@
         </div>
         <p>Develop a powerful brand strategy that aligns with your business goals and creates meaningful connections
           with your customers through our comprehensive marketing solutions.</p>
-        
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Digital Marketing Section - Enhanced with more details about Google Ads -->
         <section class="strategy-section">
           <h3 class="section-title">Digital Marketing Excellence</h3>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
               <h4>Result-Driven Ad Campaigns</h4>
-              <p>Our digital marketing specialists create and manage campaigns that drive measurable business results:</p>
+              <p>Our digital marketing specialists create and manage campaigns that drive measurable business results:
+              </p>
               <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Performance-based campaign strategies tailored to your business goals</li>
+                <li><i class="fas fa-check"></i> Performance-based campaign strategies tailored to your business goals
+                </li>
                 <li><i class="fas fa-check"></i> Detailed audience targeting to reach your ideal customers</li>
                 <li><i class="fas fa-check"></i> Regular optimization based on data-driven insights</li>
                 <li><i class="fas fa-check"></i> Transparent reporting with clear ROI metrics</li>
@@ -683,43 +736,49 @@
               </div>
             </div>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fab fa-google"></i>
               </div>
               <h4>Google Ads Management</h4>
-              <p>Our certified Google Ads specialists create high-performance campaigns across Search, Display, and Shopping networks with precision keyword targeting, compelling ad copy, and continuous A/B testing to maximize your ROI.</p>
+              <p>Our certified Google Ads specialists create high-performance campaigns across Search, Display, and
+                Shopping networks with precision keyword targeting, compelling ad copy, and continuous A/B testing to
+                maximize your ROI.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fab fa-facebook"></i>
               </div>
               <h4>Meta Advertising</h4>
-              <p>Leverage the power of Facebook and Instagram ads with our data-driven approach to audience segmentation, creative design, and campaign optimization that drives engagement, leads, and conversions.</p>
+              <p>Leverage the power of Facebook and Instagram ads with our data-driven approach to audience
+                segmentation, creative design, and campaign optimization that drives engagement, leads, and conversions.
+              </p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-ad"></i>
               </div>
               <h4>Remarketing Campaigns</h4>
-              <p>We implement strategic remarketing campaigns that reconnect with previous visitors to your website, increasing brand recall and driving higher conversion rates through personalized messaging.</p>
+              <p>We implement strategic remarketing campaigns that reconnect with previous visitors to your website,
+                increasing brand recall and driving higher conversion rates through personalized messaging.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Social Media Section - Enhanced with more details -->
         <section class="strategy-section">
           <h3 class="section-title">Social Media Management</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Comprehensive Social Media Strategy</h4>
-            <p>We create and manage engaging content across all major social platforms with a focus on building community and driving business results:</p>
-            
+            <p>We create and manage engaging content across all major social platforms with a focus on building
+              community and driving business results:</p>
+
             <div class="platform-icons">
               <div class="platform-icon"><i class="fab fa-instagram"></i><span>Instagram</span></div>
               <div class="platform-icon"><i class="fab fa-facebook"></i><span>Facebook</span></div>
@@ -729,96 +788,106 @@
               <div class="platform-icon"><i class="fab fa-pinterest"></i><span>Pinterest</span></div>
               <div class="platform-icon"><i class="fab fa-tiktok"></i><span>TikTok</span></div>
             </div>
-            
-            <p>Our comprehensive social media management includes content creation, community engagement, analytics reporting, and strategic growth planning tailored to your brand voice and business objectives.</p>
+
+            <p>Our comprehensive social media management includes content creation, community engagement, analytics
+              reporting, and strategic growth planning tailored to your brand voice and business objectives.</p>
           </div>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-calendar-check"></i>
               </div>
               <h4>Content Calendar & Creation</h4>
-              <p>We develop strategic posting schedules with professionally designed graphics, engaging copy, and platform-specific content formats that maintain consistent engagement with your audience.</p>
+              <p>We develop strategic posting schedules with professionally designed graphics, engaging copy, and
+                platform-specific content formats that maintain consistent engagement with your audience.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-comments"></i>
               </div>
               <h4>Community Management</h4>
-              <p>Our team actively engages with your followers, responds to inquiries, and builds relationships through daily monitoring and interaction that strengthen brand loyalty and customer satisfaction.</p>
+              <p>Our team actively engages with your followers, responds to inquiries, and builds relationships through
+                daily monitoring and interaction that strengthen brand loyalty and customer satisfaction.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-chart-pie"></i>
               </div>
               <h4>Analytics & Growth Strategy</h4>
-              <p>We track key performance metrics, analyze content effectiveness, and continuously refine your social strategy with detailed monthly reports and growth recommendations.</p>
+              <p>We track key performance metrics, analyze content effectiveness, and continuously refine your social
+                strategy with detailed monthly reports and growth recommendations.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Analytics & Reporting Section - New section -->
         <section class="strategy-section">
           <h3 class="section-title">Analytics & Performance Tracking</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-tachometer-alt"></i>
               </div>
               <h4>Campaign Dashboards</h4>
-              <p>Access real-time performance metrics through custom dashboards that visualize your campaign data, making it easy to track progress and understand results at a glance.</p>
+              <p>Access real-time performance metrics through custom dashboards that visualize your campaign data,
+                making it easy to track progress and understand results at a glance.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-file-alt"></i>
               </div>
               <h4>Comprehensive Reporting</h4>
-              <p>Receive detailed monthly reports with actionable insights, performance analysis, and strategic recommendations to continually improve your marketing effectiveness.</p>
+              <p>Receive detailed monthly reports with actionable insights, performance analysis, and strategic
+                recommendations to continually improve your marketing effectiveness.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-bullseye"></i>
               </div>
               <h4>Conversion Optimization</h4>
-              <p>We identify opportunities to improve conversion rates through A/B testing, user journey analysis, and data-driven optimization of your landing pages and ad creatives.</p>
+              <p>We identify opportunities to improve conversion rates through A/B testing, user journey analysis, and
+                data-driven optimization of your landing pages and ad creatives.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Promotional Partnerships Section - Keep existing section -->
         <section class="strategy-section">
           <h3 class="section-title">Promotional Partnerships</h3>
-          <p>We've established strategic partnerships with influential content creators and media outlets to amplify your brand message.</p>
-          
+          <p>We've established strategic partnerships with influential content creators and media outlets to amplify
+            your brand message.</p>
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-handshake"></i>
               </div>
               <h4>Influencer Collaborations</h4>
-              <p>Access our network of verified influencers across various niches to create authentic promotional content that resonates with targeted audiences.</p>
+              <p>Access our network of verified influencers across various niches to create authentic promotional
+                content that resonates with targeted audiences.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-bullhorn"></i>
               </div>
               <h4>Paid Promotions</h4>
-              <p>We negotiate and manage paid promotional opportunities with high-traffic platforms and industry-specific media outlets to maximize your exposure.</p>
+              <p>We negotiate and manage paid promotional opportunities with high-traffic platforms and
+                industry-specific media outlets to maximize your exposure.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Visual Content Section - Keep existing section -->
         <section class="strategy-section">
           <h3 class="section-title">Premium Visual Content</h3>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
@@ -830,7 +899,8 @@
                 <li><i class="fas fa-check"></i> Event coverage for company milestones and launches</li>
                 <li><i class="fas fa-check"></i> Theme-based creative shoots for seasonal campaigns</li>
               </ul>
-              <p>Each photoshoot is carefully planned to align with your brand guidelines while pushing creative boundaries to capture attention in crowded feeds.</p>
+              <p>Each photoshoot is carefully planned to align with your brand guidelines while pushing creative
+                boundaries to capture attention in crowded feeds.</p>
             </div>
             <div class="highlight-image">
               <div class="image-placeholder">
@@ -839,30 +909,32 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Festival & Event Marketing - Keep existing section -->
         <section class="strategy-section">
           <h3 class="section-title">Seasonal & Event Marketing</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-gifts"></i>
               </div>
               <h4>Festival Campaigns</h4>
-              <p>We create timely and culturally relevant content for major holidays and festivals, helping your brand become part of celebration moments and traditions.</p>
+              <p>We create timely and culturally relevant content for major holidays and festivals, helping your brand
+                become part of celebration moments and traditions.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-chart-line"></i>
               </div>
               <h4>Trend Integration</h4>
-              <p>Our team constantly monitors trending topics and viral opportunities to keep your content fresh and aligned with current conversations.</p>
+              <p>Our team constantly monitors trending topics and viral opportunities to keep your content fresh and
+                aligned with current conversations.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Call to Action - Keep existing section -->
         <div class="strategy-cta">
           <h3>Ready to transform your brand presence?</h3>
@@ -880,23 +952,24 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Our Team</h2>
           <button class="close-overlay" title="Close">×</button>
         </div>
-        <p>Meet the talented professionals behind our creative solutions. Our small but powerful team combines expertise in design, technology, and business strategy to deliver exceptional results.</p>
-        
+        <p>Meet the talented professionals behind our creative solutions. Our small but powerful team combines expertise
+          in design, technology, and business strategy to deliver exceptional results.</p>
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Leadership Section -->
         <section class="strategy-section">
           <h3 class="section-title">Leadership</h3>
-          
+
           <div class="team-leadership">
             <!-- Founder -->
             <div class="team-member featured">
@@ -906,28 +979,11 @@
                 </div>
               </div>
               <div class="member-details">
-                <h4>Rajyavardhan Singh</h4>
-                <span class="member-title">Founder & CEO</span>
-                <p>With a visionary approach to business and design, Rajyavardhan founded Luveian with the mission to help companies transform their digital presence and create meaningful connections with their audiences. His leadership drives our strategic direction and client relationships.</p>
-                <div class="member-social">
-                  <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                  <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Co-Founder -->
-            <div class="team-member featured">
-              <div class="member-image">
-                <div class="image-placeholder">
-                  <i class="fas fa-user"></i>
-                </div>
-              </div>
-              <div class="member-details">
                 <h4>Aryan S. Rao</h4>
-                <span class="member-title">Co-Founder & CTO</span>
-                <p>As Co-Founder and CTO, Aryan leads all software development initiatives at Luveian. His technical expertise and innovative approach to problem-solving enable us to create cutting-edge digital solutions that deliver exceptional user experiences and business results.</p>
+                <span class="member-title">Founder & CEO</span>
+                <p>As Founder and CEO, Aryan leads Luveian with a vision to create innovative digital products that
+                  solve real business challenges. His expertise in software development and product design enables us to
+                  deliver cutting-edge solutions that exceed client expectations and drive measurable results.</p>
                 <div class="member-social">
                   <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
                   <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -935,7 +991,29 @@
                 </div>
               </div>
             </div>
-            
+
+            <!-- Software & Marketing Lead -->
+            <div class="team-member featured">
+              <div class="member-image">
+                <div class="image-placeholder">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+              <div class="member-details">
+                <h4>Rajyavardhan Singh</h4>
+                <span class="member-title">Founder - Marketing & Social Media Director</span>
+                <p>Rajyavardhan heads our marketing and social media strategies, bringing exceptional insight into brand
+                  communication and digital advertising. His expertise in social media management, content strategy, and
+                  paid advertising campaigns helps our clients achieve remarkable engagement and conversion rates across
+                  all platforms.</p>
+                <div class="member-social">
+                  <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+
             <div class="team-member featured">
               <div class="member-image">
                 <div class="image-placeholder">
@@ -944,8 +1022,11 @@
               </div>
               <div class="member-details">
                 <h4>Humaira Ambreen</h4>
-                <span class="member-title">Art Director & Brand Strategist</span>
-                <p>As the creative force behind our design work, Humaira provides essential direction on all visual and brand elements. Her exceptional eye for design and deep understanding of brand aesthetics ensure our creative solutions are both beautiful and effective. She guides the team with expert feedback and design recommendations.</p>
+                <span class="member-title">Creative Director & Design Lead</span>
+                <p>As the creative force behind our design work, Humaira provides essential direction on all visual and
+                  brand elements. Her exceptional eye for design and deep understanding of brand aesthetics ensure our
+                  creative solutions are both beautiful and effective. She guides the team with expert feedback and
+                  design recommendations.</p>
                 <div class="member-social">
                   <a href="humaira.html" class="social-icon" title="View profile"><i class="fas fa-user-circle"></i></a>
                   <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -956,48 +1037,52 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Our Expertise Section -->
         <section class="strategy-section">
           <h3 class="section-title">Our Expertise</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Complementary Skills</h4>
-            <p>Our founding team combines complementary expertise that allows us to deliver comprehensive solutions to our clients:</p>
+            <p>Our leadership team combines complementary expertise that allows us to deliver comprehensive solutions to
+              our clients:</p>
           </div>
-          
+
           <div class="strategy-cards">
-            <div class="strategy-card">
-              <div class="card-icon">
-                <i class="fas fa-pencil-ruler"></i>
-              </div>
-              <h4>Design Excellence</h4>
-              <p>We create visually stunning designs that communicate your brand story effectively while delivering intuitive user experiences across all touchpoints.</p>
-            </div>
-            
             <div class="strategy-card">
               <div class="card-icon">
                 <i class="fas fa-code"></i>
               </div>
               <h4>Technical Innovation</h4>
-              <p>Our development approach combines cutting-edge technologies with robust architecture to create scalable, high-performance digital solutions.</p>
+              <p>Led by Aryan, our development team creates scalable, high-performance digital solutions using
+                cutting-edge technologies and robust architecture.</p>
             </div>
-            
+
             <div class="strategy-card">
               <div class="card-icon">
-                <i class="fas fa-lightbulb"></i>
+                <i class="fas fa-pencil-ruler"></i>
               </div>
-              <h4>Strategic Thinking</h4>
-              <p>We take a strategic approach to every project, ensuring our solutions align with your business objectives and deliver measurable results.</p>
+              <h4>Design Excellence</h4>
+              <p>Under Humaira's direction, we create visually stunning designs that communicate your brand story
+                effectively while delivering intuitive user experiences.</p>
+            </div>
+
+            <div class="strategy-card">
+              <div class="card-icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <h4>Marketing Expertise</h4>
+              <p>Rajyavardhan guides our marketing strategies to ensure your brand reaches the right audience with
+                compelling messaging that drives engagement and conversions.</p>
             </div>
           </div>
         </section>
-        
+
         <!-- Our Approach Section -->
         <section class="strategy-section">
           <h3 class="section-title">Our Approach</h3>
-          
+
           <div class="strategy-highlight with-image">
             <div class="highlight-decoration"></div>
             <div class="highlight-content">
@@ -1010,7 +1095,8 @@
                 <li><i class="fas fa-check"></i> Transparent project management</li>
                 <li><i class="fas fa-check"></i> Ongoing support and optimization</li>
               </ul>
-              <p>This collaborative approach ensures that our solutions are perfectly aligned with your vision and business needs.</p>
+              <p>This collaborative approach ensures that our solutions are perfectly aligned with your vision and
+                business needs.</p>
             </div>
             <div class="highlight-image">
               <div class="image-placeholder">
@@ -1019,24 +1105,29 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Our Values Section -->
         <section class="strategy-section">
           <h3 class="section-title">Our Values</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>What Drives Us</h4>
             <ul class="feature-list">
-              <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from design concepts to code implementation.</li>
-              <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and technologies to find the best solutions.</li>
-              <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from working closely with our clients as partners.</li>
-              <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all our communications and business practices.</li>
-              <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results we create for our clients.</li>
+              <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from
+                design concepts to code implementation.</li>
+              <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and
+                technologies to find the best solutions.</li>
+              <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from
+                working closely with our clients as partners.</li>
+              <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all
+                our communications and business practices.</li>
+              <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results
+                we create for our clients.</li>
             </ul>
           </div>
         </section>
-        
+
         <!-- Removed the Call to Action section -->
       </div>
     </div>
@@ -1048,23 +1139,24 @@
         <div class="decoration-line"></div>
         <div class="decoration-dots"></div>
       </div>
-      
+
       <div class="overlay-content">
         <div class="overlay-header">
           <h2>Contact Us</h2>
           <button class="close-overlay" title="Close">×</button>
         </div>
-        <p>Ready to start your journey with us? Get in touch to discuss how we can help bring your vision to life with our expertise in design and technology.</p>
-        
+        <p>Ready to start your journey with us? Get in touch to discuss how we can help bring your vision to life with
+          our expertise in design and technology.</p>
+
         <!-- Add scroll progress indicator -->
         <div class="scroll-progress">
           <div class="progress-bar"></div>
         </div>
-        
+
         <!-- Direct Contact Methods - Now as the first section -->
         <section class="strategy-section">
           <h3 class="section-title">Connect With Us</h3>
-          
+
           <div class="strategy-cards">
             <div class="strategy-card contact-card">
               <div class="card-icon">
@@ -1074,7 +1166,7 @@
               <p>Send us an email anytime and we'll get back to you within 24 hours.</p>
               <a href="mailto:hello@luveian.com" class="contact-link">hello@luveian.com</a>
             </div>
-            
+
             <div class="strategy-card contact-card">
               <div class="card-icon">
                 <i class="fas fa-phone-alt"></i>
@@ -1083,7 +1175,7 @@
               <p>Available for calls Monday-Friday from 9AM to 6PM.</p>
               <a href="tel:+1234567890" class="contact-link">+1 (234) 567-890</a>
             </div>
-            
+
             <div class="strategy-card contact-card">
               <div class="card-icon">
                 <i class="fab fa-whatsapp"></i>
@@ -1094,11 +1186,11 @@
             </div>
           </div>
         </section>
-        
+
         <!-- Team Contact -->
         <section class="strategy-section">
           <h3 class="section-title">Contact Our Leadership</h3>
-          
+
           <div class="team-contacts">
             <div class="team-contact-card">
               <div class="contact-avatar">
@@ -1107,27 +1199,8 @@
                 </div>
               </div>
               <div class="contact-info">
-                <h4>Rajyavardhan Singh</h4>
-                <span class="member-title">Founder & CEO</span>
-                <a href="mailto:rajyavardhan@luveian.com" class="contact-link">
-                  <i class="fas fa-envelope"></i> rajyavardhan@luveian.com
-                </a>
-                <div class="social-links">
-                  <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                  <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="team-contact-card">
-              <div class="contact-avatar">
-                <div class="image-placeholder">
-                  <i class="fas fa-user"></i>
-                </div>
-              </div>
-              <div class="contact-info">
                 <h4>Aryan S. Rao</h4>
-                <span class="member-title">Co-Founder & CTO</span>
+                <span class="member-title">Founder & CEO</span>
                 <a href="mailto:aryan@luveian.com" class="contact-link">
                   <i class="fas fa-envelope"></i> aryan@luveian.com
                 </a>
@@ -1137,18 +1210,56 @@
                 </div>
               </div>
             </div>
+
+            <div class="team-contact-card">
+              <div class="contact-avatar">
+                <div class="image-placeholder">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+              <div class="contact-info">
+                <h4>Rajyavardhan Singh</h4>
+                <span class="member-title">Marketing & Social Media Director</span>
+                <a href="mailto:rajyavardhan@luveian.com" class="contact-link">
+                  <i class="fas fa-envelope"></i> rajyavardhan@luveian.com
+                </a>
+                <div class="social-links">
+                  <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="team-contact-card">
+              <div class="contact-avatar">
+                <div class="image-placeholder">
+                  <i class="fas fa-user"></i>
+                </div>
+              </div>
+              <div class="contact-info">
+                <h4>Humaira Ambreen</h4>
+                <span class="member-title">Creative Director & Design Lead</span>
+                <a href="mailto:humaira@luveian.com" class="contact-link">
+                  <i class="fas fa-envelope"></i> humaira@luveian.com
+                </a>
+                <div class="social-links">
+                  <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        
+
         <!-- Follow Us Section -->
         <section class="strategy-section">
           <h3 class="section-title">Follow Us</h3>
-          
+
           <div class="strategy-highlight">
             <div class="highlight-decoration"></div>
             <h4>Stay Connected</h4>
             <p>Follow us on social media to see our latest work, insights, and updates.</p>
-            
+
             <div class="social-grid">
               <a href="#" class="social-grid-item">
                 <i class="fab fa-instagram"></i>
@@ -1177,11 +1288,11 @@
             </div>
           </div>
         </section>
-        
+
         <!-- FAQ Section -->
         <section class="strategy-section">
           <h3 class="section-title">Common Questions</h3>
-          
+
           <div class="faq-container">
             <div class="faq-item">
               <div class="faq-question">
@@ -1189,27 +1300,31 @@
                 <div class="faq-toggle"><i class="fas fa-plus"></i></div>
               </div>
               <div class="faq-answer">
-                <p>We typically can begin new projects within 1-2 weeks of finalizing project details and agreements. For urgent requests, we'll do our best to accommodate your timeline.</p>
+                <p>We typically can begin new projects within 1-2 weeks of finalizing project details and agreements.
+                  For urgent requests, we'll do our best to accommodate your timeline.</p>
               </div>
             </div>
-            
+
             <div class="faq-item">
               <div class="faq-question">
                 <h4>What information do you need to provide a quote?</h4>
                 <div class="faq-toggle"><i class="fas fa-plus"></i></div>
               </div>
               <div class="faq-answer">
-                <p>To provide an accurate quote, we need to understand your project scope, timeline, technical requirements, and any specific features or design elements. The more details you can share, the more precise our estimate will be.</p>
+                <p>To provide an accurate quote, we need to understand your project scope, timeline, technical
+                  requirements, and any specific features or design elements. The more details you can share, the more
+                  precise our estimate will be.</p>
               </div>
             </div>
-            
+
             <div class="faq-item">
               <div class="faq-question">
                 <h4>Do you work with clients internationally?</h4>
                 <div class="faq-toggle"><i class="fas fa-plus"></i></div>
               </div>
               <div class="faq-answer">
-                <p>Yes, we work with clients globally and have experience collaborating across different time zones. Our digital workflow and communication tools make remote collaboration seamless and effective.</p>
+                <p>Yes, we work with clients globally and have experience collaborating across different time zones. Our
+                  digital workflow and communication tools make remote collaboration seamless and effective.</p>
               </div>
             </div>
           </div>
@@ -1225,23 +1340,24 @@
       <div class="decoration-line"></div>
       <div class="decoration-dots"></div>
     </div>
-    
+
     <div class="overlay-content">
       <div class="overlay-header">
         <h2>About Luveian</h2>
         <button class="close-overlay" title="Close">×</button>
       </div>
-      <p>At Luveian, we combine creativity and technology to build innovative digital experiences for brands and businesses ready to make their mark.</p>
-      
+      <p>At Luveian, we combine creativity and technology to build innovative digital experiences for brands and
+        businesses ready to make their mark.</p>
+
       <!-- Add scroll progress indicator -->
       <div class="scroll-progress">
         <div class="progress-bar"></div>
       </div>
-      
+
       <!-- New Services Overview Section -->
       <section class="strategy-section services-overview">
         <h3 class="section-title">Our Services</h3>
-        
+
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon">
@@ -1250,7 +1366,7 @@
             <h4>Design</h4>
             <p>Brand identity, UI/UX design, print materials, and visual content creation.</p>
           </div>
-          
+
           <div class="service-card">
             <div class="service-icon">
               <i class="fas fa-laptop-code"></i>
@@ -1258,7 +1374,7 @@
             <h4>Software</h4>
             <p>Web development, custom applications, e-commerce, and digital platforms.</p>
           </div>
-          
+
           <div class="service-card">
             <div class="service-icon">
               <i class="fas fa-lightbulb"></i>
@@ -1268,17 +1384,20 @@
           </div>
         </div>
       </section>
-      
+
       <!-- About Us Section -->
       <section class="strategy-section">
         <h3 class="section-title">Our Story</h3>
-        
+
         <div class="strategy-highlight with-image">
           <div class="highlight-decoration"></div>
           <div class="highlight-content">
             <h4>Founded on Passion</h4>
-            <p>Luveian was founded with a simple yet powerful vision: to help businesses transform their digital presence through thoughtful design and technology. What began as a collaboration between industry professionals has evolved into a boutique creative agency with a reputation for excellence.</p>
-            <p>We believe that exceptional digital experiences are built at the intersection of design, technology, and strategy—where aesthetics meet functionality and business objectives.</p>
+            <p>Luveian was founded with a simple yet powerful vision: to help businesses transform their digital
+              presence through thoughtful design and technology. What began as a collaboration between industry
+              professionals has evolved into a boutique creative agency with a reputation for excellence.</p>
+            <p>We believe that exceptional digital experiences are built at the intersection of design, technology, and
+              strategy—where aesthetics meet functionality and business objectives.</p>
           </div>
           <div class="highlight-image">
             <div class="image-placeholder">
@@ -1287,55 +1406,63 @@
           </div>
         </div>
       </section>
-      
+
       <!-- Our Approach Section -->
       <section class="strategy-section">
         <h3 class="section-title">Our Approach</h3>
-        
+
         <div class="strategy-cards">
           <div class="strategy-card">
             <div class="card-icon">
               <i class="fas fa-comments"></i>
             </div>
             <h4>Listen</h4>
-            <p>We begin every relationship by understanding your vision, goals, and challenges. This foundation ensures we create solutions that address your specific needs.</p>
+            <p>We begin every relationship by understanding your vision, goals, and challenges. This foundation ensures
+              we create solutions that address your specific needs.</p>
           </div>
-          
+
           <div class="strategy-card">
             <div class="card-icon">
               <i class="fas fa-pencil-ruler"></i>
             </div>
             <h4>Create</h4>
-            <p>Our design and development process combines creativity with technical expertise to build solutions that are both beautiful and functional.</p>
+            <p>Our design and development process combines creativity with technical expertise to build solutions that
+              are both beautiful and functional.</p>
           </div>
-          
+
           <div class="strategy-card">
             <div class="card-icon">
               <i class="fas fa-rocket"></i>
             </div>
             <h4>Launch</h4>
-            <p>We don't just deliver and disappear. We partner with you through launch and beyond, ensuring your digital assets continue to perform and evolve.</p>
+            <p>We don't just deliver and disappear. We partner with you through launch and beyond, ensuring your digital
+              assets continue to perform and evolve.</p>
           </div>
         </div>
       </section>
-      
+
       <!-- Values Section -->
       <section class="strategy-section">
         <h3 class="section-title">Our Values</h3>
-        
+
         <div class="strategy-highlight">
           <div class="highlight-decoration"></div>
           <h4>What Drives Us</h4>
           <ul class="feature-list">
-            <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from design concepts to code implementation.</li>
-            <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and technologies to find the best solutions.</li>
-            <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from working closely with our clients as partners.</li>
-            <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all our communications and business practices.</li>
-            <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results we create for our clients.</li>
+            <li><i class="fas fa-check"></i> <strong>Excellence:</strong> We pursue quality in everything we do, from
+              design concepts to code implementation.</li>
+            <li><i class="fas fa-check"></i> <strong>Innovation:</strong> We continuously explore new ideas and
+              technologies to find the best solutions.</li>
+            <li><i class="fas fa-check"></i> <strong>Collaboration:</strong> We believe the best results come from
+              working closely with our clients as partners.</li>
+            <li><i class="fas fa-check"></i> <strong>Integrity:</strong> We maintain honesty and transparency in all our
+              communications and business practices.</li>
+            <li><i class="fas fa-check"></i> <strong>Impact:</strong> We measure our success by the tangible results we
+              create for our clients.</li>
           </ul>
         </div>
       </section>
-      
+
     </div>
   </div>
 
@@ -1373,7 +1500,7 @@
         button.addEventListener('click', function () {
           const overlayId = this.getAttribute('data-overlay') + '-overlay';
           const overlay = document.getElementById(overlayId);
-          
+
           // Check if this button is already active
           if (this.classList.contains('active')) {
             // If same button clicked again, close the overlay
