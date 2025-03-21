@@ -488,8 +488,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const projectData = {
     project1: {
       title: "Shyam Kemicals Website",
-      client: "Shyam Kemicals",
-      year: "2023",
+      client: "Manish Buchaisa",
+      year: "2025",
       services: "Web Design, Development, Content Strategy, Google Ads",
       description: `
         <h3>Project Overview</h3>
@@ -512,8 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     project2: {
       title: "King Rajasthan Royal Salon",
-      client: "King Rajasthan Royal Salon",
-      year: "2023",
+      client: "Aryan Kumar",
+      year: "2025",
       services: "Logo Design, Brand Identity, Social Media Management, Meta Advertising",
       description: `
         <h3>Project Overview</h3>
@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                   <div class="meta-item">
                     <h4>Year</h4>
-                    <p>${projectContent.year || '2023'}</p>
+                    <p>${projectContent.year || '2025'}</p>
                   </div>
                 </div>
                 <div class="project-description">
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                   <div class="meta-item">
                     <h4>Year</h4>
-                    <p>${projectContent.year || '2023'}</p>
+                    <p>${projectContent.year || '2024'}</p>
                   </div>
                   <div class="meta-item">
                     <h4>Services</h4>
