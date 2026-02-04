@@ -50,8 +50,8 @@ For inquiries about our services:
 
 ### Leadership Team
 
-- **Aryan S. Rao** - Founder & CEO - [aryan@luveian.com](mailto:aryan@luveian.com)
 - **Rajyavardhan Singh** - Marketing & Social Media Director - [rajyavardhan@luveian.com](mailto:rajyavardhan@luveian.com)
+- **Aryan S. Rao** - Full Stack Developer - [aryan@luveian.com](mailto:aryan@luveian.com)
 - **Humaira Ambreen** - Creative Director & Design Lead - [humaira@luveian.com](mailto:humaira@luveian.com)
 
 ### Connect With Us
